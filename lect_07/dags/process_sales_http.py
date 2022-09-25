@@ -16,7 +16,6 @@ DEFAULT_ARGS = {
     'retry_delay': 60,
 }
 
-execution_date = '{{ ds }}'
 raw_dir = os.path.join(cache_folder, "raw", "sales", '{{ ds }}')
 stg_dir = os.path.join(cache_folder, "stg", "sales", '{{ ds }}')
 
@@ -35,7 +34,7 @@ extract_data_from_api = SimpleHttpOperator(
     http_conn_id='extract_sales_data_from_api_job',
     method='POST',
     data={
-        'date': execution_date,
+        'date': '{{ ds }}',
         'raw_dir': raw_dir,
     },
     headers={"Content-Type": "application/json"},
@@ -48,7 +47,7 @@ convert_to_avro = SimpleHttpOperator(
     http_conn_id='convert_to_avro_job',
     method='POST',
     data={
-        'date': execution_date,
+        'date': '{{ ds }}',
         'raw_dir': raw_dir,
         'stg_dir': stg_dir,
     },
