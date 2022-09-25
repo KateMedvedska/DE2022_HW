@@ -1,7 +1,11 @@
+
+import os
 from datetime import datetime
 
 from airflow import DAG
 from airflow.providers.http.operators.http import SimpleHttpOperator
+
+from general.custom_config import cache_folder
 
 DEFAULT_ARGS = {
     'depends_on_past': False,
@@ -13,8 +17,8 @@ DEFAULT_ARGS = {
 }
 
 execution_date = '{{ ds }}'
-raw_dir = ''
-stg_dir = ''
+raw_dir = os.path.join(cache_folder, "raw", "sales", '{{ ds }}')
+stg_dir = os.path.join(cache_folder, "stg", "sales", '{{ ds }}')
 
 
 dag = DAG(
