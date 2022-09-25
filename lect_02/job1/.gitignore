@@ -141,5 +141,3 @@ cython_debug/
 # local
 var
 .idea
-lect_02/ht_lect_02/cache
-lect_07/airflow
