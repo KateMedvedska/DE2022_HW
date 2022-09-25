@@ -5,7 +5,7 @@ from datetime import datetime
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 
-from check_jobs import run_job1, run_job2
+from check_jobs_empty import run_job1, run_job2
 from general.custom_config import cache_folder
 
 
