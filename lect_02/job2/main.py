@@ -6,7 +6,7 @@ and trigger business logic layer
 import os
 from flask import Flask, request
 from flask import typing as flask_typing
-from lect_02.ht_lect_02.general import storage
+from lect_02.general import storage
 
 
 app = Flask(__name__)

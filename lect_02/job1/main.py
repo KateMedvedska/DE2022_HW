@@ -6,7 +6,7 @@ and trigger business logic layer
 import os
 from flask import Flask, request
 from flask import typing as flask_typing
-from lect_02.ht_lect_02.general import api_client
+from lect_02.general import api_client
 
 AUTH_TOKEN = os.environ.get("API_AUTH_TOKEN")
 

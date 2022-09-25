@@ -1,6 +1,6 @@
 import requests
 from typing import List
-from lect_02.ht_lect_02.general.storage import save_to_disk_json
+from lect_02.general.storage import save_to_disk_json
 
 API_URL = 'https://fake-api-vycpfa6oca-uc.a.run.app/'
 
