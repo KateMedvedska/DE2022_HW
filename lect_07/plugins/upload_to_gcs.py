@@ -54,10 +54,3 @@ def upload_folder(bucket_name, source_folder_path, destination_folder_name):
         f"All files in folder {source_folder_path} uploaded to {destination_folder_name}."
     )
 
-
-if __name__ == "__main__":
-    upload_blob(
-        bucket_name='de2022-hw-lect-10',
-        source_file_path='/Users/k.medvedska/Repositories/DE2022_HW/cache/sales/2022-08-01/src1_sales_2022-08-01__01.csv',
-        destination_blob_name='2022-08-01/src1_sales_2022-08-01__01.csv',
-    )
