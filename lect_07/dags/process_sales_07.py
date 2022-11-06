@@ -22,7 +22,7 @@ stg_dir = os.path.join(cache_folder, "stg", "sales", '{{ ds }}')
 
 
 dag = DAG(
-    dag_id='process_sales',
+    dag_id='process_sales_07',
     start_date=datetime(2022, 8, 9),
     end_date=datetime(2022, 8, 12),
     schedule_interval='0 1 * * *',
