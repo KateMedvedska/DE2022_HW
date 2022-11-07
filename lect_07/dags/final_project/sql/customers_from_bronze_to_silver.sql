@@ -53,6 +53,7 @@ when not matched then
       email,
       registration_date,
       state,
+      deleted,
       _id,
       _logical_dt,
       _job_start_dt
@@ -63,6 +64,7 @@ when not matched then
       email,
       registration_date,
       state,
+      FALSE,
       _id,
       _logical_dt,
       _job_start_dt
