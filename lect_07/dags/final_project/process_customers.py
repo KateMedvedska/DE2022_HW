@@ -4,6 +4,7 @@ Customers processing pipeline
 import datetime as dt
 
 from airflow import DAG
+from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 from airflow.providers.google.cloud.operators.bigquery import BigQueryInsertJobOperator
 
 from final_project.table_defs.customers_csv import customers_csv
@@ -69,4 +70,9 @@ customers_from_bronze_to_silver = BigQueryInsertJobOperator(
     }
 )
 
-customers_from_dl_to_bronze >> customers_from_bronze_to_silver
+trigger_enrich_user_profiles = TriggerDagRunOperator(
+    task_id='trigger_enrich_user_profiles',
+    trigger_dag_id='enrich_user_profiles',
+)
+
+customers_from_dl_to_bronze >> customers_from_bronze_to_silver >> trigger_enrich_user_profiles
