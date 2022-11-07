@@ -38,7 +38,10 @@ when matched and s._logical_dt < b._logical_dt then
     s.email = b.email,
     s.registration_date = b.registration_date,
     s.state = b.state,
-    s.deleted = FALSE
+    s.deleted = FALSE,
+    s._id = b._id,
+    s._logical_dt = b._logical_dt,
+    s._job_start_dt = b._job_start_dt
 when not matched then
   /*
     Якщо данних не має в оригінальній таблиці потрібно їх додати.
@@ -64,7 +67,7 @@ when not matched then
       _logical_dt,
       _job_start_dt
   )
-when not matched by source and date(s._logical_dt) >= date('{{ ds }}')then
+when not matched by source and date(s._logical_dt) <= date('{{ ds }}') then
   /*
     Якщо данних не має в новій таблиці, то відмітимо користувача як видаленого.
   */
