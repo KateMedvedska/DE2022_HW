@@ -1,7 +1,7 @@
 merge `{{ params.project_id }}.silver.customers` as s
 using (
   /*
-    Видалимо дублікати. рамках одного дня.
+    Видалимо дублікати рамках одного дня.
   */
   select
       Id as client_id,
