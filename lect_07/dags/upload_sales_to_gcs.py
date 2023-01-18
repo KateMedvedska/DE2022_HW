@@ -17,9 +17,9 @@ DEFAULT_ARGS = {
 }
 
 sales_dir = os.path.join(cache_folder, 'sales', '{{ ds }}')
-year = "{{ execution_date.strftime('%Y') }}"
-month = "{{ execution_date.strftime('%m') }}"
-day = "{{ execution_date.strftime('%d') }}"
+year = "{{ logical_date.strftime('%Y') }}"
+month = "{{ logical_date.strftime('%m') }}"
+day = "{{ logical_date.strftime('%d') }}"
 
 
 dag = DAG(
