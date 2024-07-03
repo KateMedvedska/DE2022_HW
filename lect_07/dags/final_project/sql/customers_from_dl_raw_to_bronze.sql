@@ -1,5 +1,5 @@
 delete from `{{ params.project_id }}.bronze.customers`
-where date(_logical_dt) = "{{ ds }}"
+where date(_logical_dt) = "{{ dag_run.logical_date }}"
 ;
 
 insert `{{ params.project_id }}.bronze.customers` (
